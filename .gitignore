@@ -1,0 +1,4 @@
+net.effects/.vs
+**/bin
+**/obj
+**/*.ps

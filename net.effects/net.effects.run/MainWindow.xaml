@@ -1,0 +1,46 @@
+﻿<Window x:Class="net.effects.run.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:net.effects.run"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="350"
+        Width="525">
+    <Window.Resources>
+        <local:MainWindowModel x:Key="Model"/>
+    </Window.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Margin="5"
+               Content="{Binding Source={StaticResource Model}, Path=EffectName}"
+               HorizontalAlignment="Center"/>
+        <Image Name="Image"
+               Grid.Row="1"
+               Margin="0, 0, 0, 15"
+               Source="Resources/Desert.jpg"
+               Effect="{Binding Source={StaticResource Model}, Path=Effect}"/>
+        <DockPanel HorizontalAlignment="Stretch"
+                   Grid.Row="2">
+            <Button Content="Back"
+                    DockPanel.Dock="Left"
+                    HorizontalAlignment="Left"
+                    Width="150"
+                    Height="25"
+                    IsEnabled="{Binding Source={StaticResource Model}, Path=HasPrev}"
+                    Click="OnPrevClick"/>
+            <Button Content="Next"
+                    DockPanel.Dock="Right"
+                    HorizontalAlignment="Right"
+                    Width="150"
+                    Height="25"
+                    IsEnabled="{Binding Source={StaticResource Model}, Path=HasNext}"
+                    Click="OnNextClick"/>
+        </DockPanel>
+    </Grid>
+</Window>
