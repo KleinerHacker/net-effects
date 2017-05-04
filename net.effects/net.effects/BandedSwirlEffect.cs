@@ -10,6 +10,10 @@ using net.effects.Utils;
 
 namespace net.effects
 {
+    /// \ingroup codecomplex
+    /// <summary>
+    /// Creates a swirl effect on the image
+    /// </summary>
     public sealed class BandedSwirlEffect : ShaderEffectBase
     {
         private static readonly PixelShader Shader = new PixelShader
@@ -28,18 +32,27 @@ namespace net.effects
         public static readonly DependencyProperty DistanceProperty = DependencyProperty.Register(
             "Distance", typeof(float), typeof(BandedSwirlEffect), new UIPropertyMetadata(0.2f, PixelShaderConstantCallback(2)));
 
+        /// <summary>
+        /// Distance of the waves in swirl
+        /// </summary>
         public float Distance
         {
             get { return (float) GetValue(DistanceProperty); }
             set { SetValue(DistanceProperty, value); }
         }
 
+        /// <summary>
+        /// Strength of the wafes of swirl
+        /// </summary>
         public float Strength
         {
             get { return (float) GetValue(StrengthProperty); }
             set { SetValue(StrengthProperty, value); }
         }
 
+        /// <summary>
+        /// Center of the swirl wafes
+        /// </summary>
         public Point Center
         {
             get { return (Point) GetValue(CenterProperty); }

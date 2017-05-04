@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>net.effects</RootNamespace>
     <AssemblyName>net.effects</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -51,6 +51,7 @@
     <Compile Include="BrightExtractEffect.cs" />
     <Compile Include="ColorKeyEffect.cs" />
     <Compile Include="ColorToneEffect.cs" />
+    <Compile Include="doxy.cs" />
     <Compile Include="SnowEffect.cs" />
     <Compile Include="Type\BlendType.cs" />
     <Compile Include="Utils\ResourceUtils.cs" />
