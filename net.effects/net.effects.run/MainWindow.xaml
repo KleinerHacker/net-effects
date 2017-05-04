@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:net.effects.run"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="350"
-        Width="525">
+        Height="600"
+        Width="800">
     <Window.Resources>
         <local:MainWindowModel x:Key="Model"/>
     </Window.Resources>
@@ -20,11 +20,21 @@
         <Label Margin="5"
                Content="{Binding Source={StaticResource Model}, Path=EffectName}"
                HorizontalAlignment="Center"/>
-        <Image Name="Image"
-               Grid.Row="1"
-               Margin="0, 0, 0, 15"
-               Source="Resources/Desert.jpg"
-               Effect="{Binding Source={StaticResource Model}, Path=Effect}"/>
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Margin="0, 0, 0, 15">
+            <Image Source="Resources/Desert.jpg"
+                   Effect="{Binding Source={StaticResource Model}, Path=Effect}"
+                   Stretch="Uniform"
+                   Height="350"/>
+            <TextBlock Margin="15"
+                       Text="Demo Text   DEMO TEXT"
+                       Background="Black"
+                       Foreground="White"
+                       Effect="{Binding Source={StaticResource Model}, Path=Effect}"
+                       HorizontalAlignment="Stretch"
+                       TextAlignment="Center"/>
+        </StackPanel>
         <DockPanel HorizontalAlignment="Stretch"
                    Grid.Row="2">
             <Button Content="Back"

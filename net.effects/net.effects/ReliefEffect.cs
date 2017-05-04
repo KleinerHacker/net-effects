@@ -9,12 +9,12 @@ namespace net.effects
     /// <summary>
     /// Creates a simple relief effect
     /// </summary>
-    public sealed class SimpleReliefEffect : ShaderEffectBase
+    public sealed class ReliefEffect : ShaderEffectBase
     {
         private static readonly PixelShader Shader =
             new PixelShader()
             {
-                UriSource = ResourceUtils.GetPackageUri("Resources/SimpleReliefShader.ps")
+                UriSource = ResourceUtils.GetPackageUri("Resources/ReliefShader.ps")
             };
 
         #region Dependency Property
@@ -23,21 +23,21 @@ namespace net.effects
             DependencyProperty.Register(
                     "Translation",
                     typeof(float),
-                    typeof(SimpleReliefEffect),
+                    typeof(ReliefEffect),
                     new UIPropertyMetadata(0.003f, PixelShaderConstantCallback(0)));
 
         public static readonly DependencyProperty InterpolationProperty =
             DependencyProperty.Register(
                     "Interpolation",
                     typeof(float),
-                    typeof(SimpleReliefEffect),
+                    typeof(ReliefEffect),
                     new UIPropertyMetadata(2.7f, PixelShaderConstantCallback(1)));
 
         public static readonly DependencyProperty IsGrayProperty =
             DependencyProperty.Register(
                     "IsGray",
                     typeof(bool),
-                    typeof(SimpleReliefEffect),
+                    typeof(ReliefEffect),
                     new UIPropertyMetadata(true, PixelShaderConstantCallback(2)));
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace net.effects
 
         #endregion
 
-        public SimpleReliefEffect()
+        public ReliefEffect()
             : base(Shader)
         {
             UpdateShaderValue(TranslationProperty);
